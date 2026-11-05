@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">DeepSeek</string>
+    <string name="app_name_full">DeepSeek 网页版</string>
+
+    <string name="chat_url">https://chat.deepseek.com/</string>
+    <string name="chat_host">chat.deepseek.com</string>
+
+    <string name="compat_title">兼容性说明</string>
+    <string name="settings_title">设置</string>
+
+    <string name="menu_new_chat">新建对话</string>
+    <string name="menu_anti_recall">防撤回</string>
+    <string name="menu_archive">撤回存档</string>
+    <string name="menu_engine">引擎与兼容性</string>
+    <string name="menu_share">分享当前页面</string>
+    <string name="menu_external">用其它浏览器打开</string>
+    <string name="menu_clear_cache">清理缓存</string>
+    <string name="menu_clear_auth">退出登录 / 清除登录态</string>
+    <string name="menu_settings">设置</string>
+    <string name="menu_about">关于</string>
+    <string name="menu_reload">重新加载</string>
+
+    <string name="error_title">页面加载失败</string>
+    <string name="error_desc">请检查网络连接后重试。若长期无法访问，可能是网络环境或服务端限制。</string>
+    <string name="error_retry">重试</string>
+    <string name="error_offline">当前无网络连接</string>
+
+    <string name="loading">正在加载…</string>
+    <string name="badge_desc">已拦截撤回</string>
+
+    <string name="banner_old_webview">当前 WebView 内核为 Chromium %1$s，网页需要 66+。点此查看如何升级（5.1 可升到 85 左右）</string>
+
+    <string name="toast_copied">已复制</string>
+    <string name="toast_archive_saved">存档已导出</string>
+    <string name="toast_no_archive">暂无撤回存档</string>
+
+    <string name="dl_started">开始下载…</string>
+    <string name="dl_failed">下载失败</string>
+</resources>

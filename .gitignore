@@ -1,0 +1,32 @@
+# Build artifacts & local scratch
+out/
+*.apk
+*.idsig
+*.keystore
+*.jks
+
+# Android SDK / toolchain (too large; users install their own)
+toolchain/android-sdk/
+toolchain/cmdline-tools/
+toolchain/.stage/
+toolchain/selftest/out/
+
+# Node
+node_modules/
+package-lock.json
+
+# IDE / OS
+.idea/
+*.iml
+.gradle/
+.DS_Store
+Thumbs.db
+
+# Local scratch
+_diag/
+_research/
+tools/js-test/tmp/
+*.log
+
+# DSH session manager local state
+.dsh-conversation-manager/

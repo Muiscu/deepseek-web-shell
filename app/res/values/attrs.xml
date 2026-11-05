@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 允许自由调整文本大小上限，但默认保持 100% 以避免布局错位 -->
+    <string name="app_label_short">DeepSeek</string>
+</resources>

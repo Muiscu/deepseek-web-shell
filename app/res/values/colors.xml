@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 品牌色（DeepSeek 蓝） -->
+    <color name="brand">#4D6BFE</color>
+    <color name="brand_dark">#3B55D9</color>
+    <color name="brand_pressed">#2F46B8</color>
+
+    <color name="bg">#FFFFFFFF</color>
+    <color name="surface">#FFFFFFFF</color>
+    <color name="text_primary">#FF111827</color>
+    <color name="text_secondary">#FF6B7280</color>
+    <color name="divider">#FFE5E7EB</color>
+
+    <color name="icon_on_brand">#FFFFFFFF</color>
+    <color name="icon_on_bg">#FF374151</color>
+
+    <color name="badge_bg">#FFEF4444</color>
+    <color name="banner_bg">#FFFFF7CD</color>
+    <color name="banner_text">#FF7C5A00</color>
+    <color name="error_bg">#FFFFFFFF</color>
+    <color name="scrim">#14000000</color>
+    <color name="ripple">#33FFFFFF</color>
+    <!-- 用于文字/链接的强调色：必须保证在 bg 上可读 -->
+    <color name="accent_text">#FF4D6BFE</color>
+</resources>

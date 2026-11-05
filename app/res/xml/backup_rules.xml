@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  网络与存储的备份规则：
+  登录态 Cookie 属于 WebView 私有存储，不在本规则内；
+  这里只排除体积大、可再生的缓存目录。
+-->
+<full-backup-content>
+    <exclude domain="cache" path="." />
+    <exclude domain="external" path="." />
+</full-backup-content>

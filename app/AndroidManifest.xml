@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  DeepSeek Web Shell
+  说明：
+    * minSdkVersion = 22（Android 5.1 Lollipop）
+    * 纯 framework 实现，不依赖 AndroidX / AppCompat，避免 multidex 与体积膨胀
+    * targetSdkVersion = 34（满足新系统安装/运行要求，旧系统上行为按平台自身规则）
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.yg.dsweb"
+    android:installLocation="auto"
+    android:versionCode="1000013"
+    android:versionName="1.4.5">
+
+    <uses-sdk android:minSdkVersion="22" android:targetSdkVersion="34" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <!-- 旧系统（<=28）保存文件到公共目录 -->
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="28" />
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="28" />
+
+    <!-- 网页内语音/拍照等能力（WebChromeClient.onPermissionRequest） -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+
+    <uses-feature android:name="android.hardware.camera" android:required="false" />
+
+    <application
+        android:name=".App"
+        android:allowBackup="true"
+        android:hardwareAccelerated="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:fullBackupContent="@xml/backup_rules"
+        android:usesCleartextTraffic="false">
+
+        <activity
+            android:name=".MainActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|smallestScreenSize|screenLayout|uiMode|density|fontScale|locale|layoutDirection"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <!-- 允许从其它 App 直接唤起对话链接 -->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="https" android:host="chat.deepseek.com" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".CompatActivity"
+            android:exported="false"
+            android:label="@string/compat_title"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!--
+          撤回存档页。
+          这个 Activity 曾经漏声明，导致点"查看存档"直接
+          ActivityNotFoundException 闪退。新增 Activity 必须在此登记。
+        -->
+        <activity
+            android:name=".ArchiveActivity"
+            android:exported="false"
+            android:label="@string/menu_archive"
+            android:configChanges="orientation|screenSize|keyboardHidden|density|fontScale"
+            android:windowSoftInputMode="adjustResize" />
+
+        <activity
+            android:name=".SettingsActivity"
+            android:exported="false"
+            android:label="@string/settings_title"
+            android:configChanges="orientation|screenSize|keyboardHidden" />
+    </application>
+
+    <!--
+      安卓 5.1 上 WebView 实现可能来自外部包，需要 <queries> 才能探测已安装版本。
+      注意：<queries> 必须是 <manifest> 的**直接子元素**（放在 <application> 里会 aapt2 报错，
+      这是 targetSdk 30+ 的包可见性语法要求）。
+    -->
+    <queries>
+        <package android:name="com.google.android.webview" />
+        <package android:name="com.android.webview" />
+        <package android:name="com.android.chrome" />
+        <package android:name="org.mozilla.firefox" />
+        <package android:name="com.microsoft.emmx" />
+        <package android:name="com.tencent.mtt" />
+        <package android:name="com.UCMobile" />
+    </queries>
+</manifest>
